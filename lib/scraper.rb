@@ -44,7 +44,6 @@ def self.scrape_profile_page(profile_url)
       end
     student_hash[:profile_quote] = profile_page.css(".profile-quote").text if profile_page.css(".profile-quote")
     student_hash[:bio] = profile_page.css("div.description-holder p").text if profile_page.css("div.description-holder p")
-    
     student_hash
   end
 end

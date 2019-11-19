@@ -8,7 +8,7 @@ class Scraper
 
     students = []
 
-    index_page.css("div.roster-cards-container") each do |card|
+    index_page.css("div.roster-cards-container").each do |card|
       card.css(".student-card a").each do |student|
         name = student.css(.student-name).text
         location = student.css(.student-location).text

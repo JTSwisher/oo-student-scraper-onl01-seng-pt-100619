@@ -44,7 +44,7 @@ def self.scrape_profile_page(profile_url)
       end 
     student_hash
   end
-end
+
 
 end
 

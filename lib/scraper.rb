@@ -31,7 +31,7 @@ def self.scrape_profile_page(profile_url)
     student_hash = { }
 
     profile_page.css(".social-icon-container a").each do |icon|
-      link = icon.attributes["href"].value do |social|
+      link = icon.attributes["href"].value
         if link.include?("twitter")
           student_hash[:twitter] = link 
         elsif link.include?("linkedin")
@@ -44,7 +44,6 @@ def self.scrape_profile_page(profile_url)
       end 
     student_hash
   end
-end 
 
 end
 

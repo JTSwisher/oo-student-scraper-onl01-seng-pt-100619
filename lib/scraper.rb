@@ -3,16 +3,21 @@ require 'pry'
 
 class Scraper
 
-   def self.scrape_index_page(index_url)
+  def self.scrape_index_page(index_url)
     index_page = NOKOGIRI::HTML(open(index_url))
 
     index_page.css("div.roster-cards-container") each do |card|
-
-    card = {
-      :name => index_page.css(.student-name).text
-      :location => index_page.css(.student-lcoation).text
-      :profile_url => index_page.css(a src ="href")
-    }
+      card.css(".student-card a").each do |student|
+        name = student.css(.student-name).text
+        location = student.css(.student-location).text
+        profile_url = student.attributes["href"].value 
+        student_hash = {
+          :name => name,
+          :location => location, 
+          :profile_url => profile_url 
+        }
+      end 
+    end 
   end 
   
   def self.scrape_profile_page(profile_url)

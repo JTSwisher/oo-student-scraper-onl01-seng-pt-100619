@@ -7,8 +7,8 @@ class Scraper
     index_page = NOKOGIRI::HTML(open(index_url))
 
     students [
-      :name => index_page.css(.student-name).text
-      :location => index_page.css(.student-lcoation).text
+      :name => index_page.css(.student-name).text,
+      :location => index_page.css(.student-lcoation).text,
       :profile_url => index_page.css(a src ="href")
     ]
 

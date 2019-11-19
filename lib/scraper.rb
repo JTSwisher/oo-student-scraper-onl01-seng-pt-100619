@@ -41,7 +41,9 @@ def self.scrape_profile_page(profile_url)
         else 
           student_hash[:blog] = link 
         end 
-      end 
+      end
+    student_hash[:profile_quote] = profile_page.css(".profile_qoute").text if profile_page.css(".profile_qoute")
+    student_hash[:bio] = profile_page.css("div.description_holder p").text if profile_page.css("div.description_holder p")
     student_hash
   end
 

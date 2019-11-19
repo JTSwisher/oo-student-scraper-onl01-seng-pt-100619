@@ -30,7 +30,7 @@ def self.scrape_profile_page(profile_url)
 
     student_profile = []
 
-    profile_page.css("div.social-icon-container").each do |icon|
+    profile_page.css("div.social-icon-container a").each do |icon|
       icon.attributes["href"].value do |social|
         twitter = social.attributes["href"].value.include?(twitter)
         linkedin = social.attribtues["href"].value.include?(linkedin)

@@ -35,15 +35,15 @@ def self.scrape_profile_page(profile_url)
         twitter = social.attributes["href"].value.include?(twitter)
         linkedin = social.attribtues["href"].value.include?(linkedin)
         github = social.attributes["href"].value.include?(github)
-        attribtues_hash = {
+        attributes_hash = {
           :twitter => twitter,
           :github => github,
           :linkedin => linkedin
         }
-        student_profiles << attribtues_hash
+        student_profile << attributes_hash
       end 
     end 
-    student_profiles
+    student_profile
   end
 end
 

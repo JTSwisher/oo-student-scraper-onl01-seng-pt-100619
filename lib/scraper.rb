@@ -8,11 +8,11 @@ class Scraper
 
     index_page.css("div.roster-cards-container") each do |card|
 
-    card = [{
+    card = {
       :name => index_page.css(.student-name).text
       :location => index_page.css(.student-lcoation).text
       :profile_url => index_page.css(a src ="href")
-    }]
+    }
   end 
   
   def self.scrape_profile_page(profile_url)
